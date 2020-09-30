@@ -16,6 +16,7 @@ AFloatingActor::AFloatingActor()
 
 	bInitializeFloatingActorLocations = false;
 	bShouldFloat = false;
+	bShouldRotate = false;
 
 	Amplitude = 0.5f;
 	Period = 1.0f;
@@ -51,6 +52,9 @@ void AFloatingActor::Tick(float DeltaTime)
 		RunningTime += DeltaTime;
 	}
 
-	AddActorLocalRotation(RotationRate * DeltaTime);
+	if (bShouldRotate)
+	{
+		AddActorLocalRotation(RotationRate * DeltaTime);
+	}
 }
 

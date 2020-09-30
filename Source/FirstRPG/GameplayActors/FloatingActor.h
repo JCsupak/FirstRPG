@@ -27,6 +27,9 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "FloatingVariables")
 	bool bShouldFloat;
 
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "FloatingVariables")
+	bool bShouldRotate;
+
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "FloatingVariables")
 	bool bInitializeFloatingActorLocations;
 
