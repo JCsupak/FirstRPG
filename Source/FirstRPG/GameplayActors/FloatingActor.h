@@ -15,30 +15,39 @@ public:
 	AFloatingActor();
 	virtual void Tick(float DeltaTime) override;
 
-	UPROPERTY(VisibleAnywhere, Category = "ActorMeshComponents")
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "ActorMeshComponents")
 	UStaticMeshComponent* StaticMesh;
 
-	UPROPERTY(EditInstanceOnly, BlueprintReadWrite, Category = "FloatingActorVariables")
-	FVector InitialLocation;
+	UPROPERTY(EditInstanceOnly, BlueprintReadWrite, Category = "FloatingVariables")
+	FVector InitializedLocation;
 
-	UPROPERTY(VisibleInstanceOnly, BlueprintReadWrite, Category = "FloatingActorVariables")
+	UPROPERTY(VisibleInstanceOnly, BlueprintReadWrite, Category = "FloatingVariables")
 	FVector PlacedLocation;
 
-	UPROPERTY(VisibleDefaultsOnly, BlueprintReadOnly, Category = "FloatingActorVariables")
-	FVector WorldOrigin;
-
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "FloatingActorVariables")
-	FVector InitialDirection;
-
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "FloatingActorVariables")
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "FloatingVariables")
 	bool bShouldFloat;
 
-	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "FloatingActorVariables")
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "FloatingVariables")
 	bool bInitializeFloatingActorLocations;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FloatingVariables")
+	FRotator RotationRate;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FloatingVariables")
+	float Amplitude;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FloatingVariables")
+	float Period;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FloatingVariables")
+	float PhaseShift;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FloatingVariables")
+	float VerticalShift;
+
+private:
+	float RunningTime;
 
 protected:
 	virtual void BeginPlay() override;
-
-	
-
 };
